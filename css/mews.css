@@ -99,6 +99,11 @@ section {
     margin-bottom: 2.5rem;
   }
 
+  main section:last-child .container {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
   nav {
     margin-bottom: 2.5rem;
     padding: 0.5rem 0;
