@@ -28,7 +28,7 @@ body {
 
 @media (min-width: 768px) {
   body {
-    background-image: url(../images/background-pattern.png);
+    background-image: url(../images/background-pattern.png?v=2);
     background-repeat: repeat;
   }
 }
