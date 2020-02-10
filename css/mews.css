@@ -1,7 +1,4 @@
 :root {
-  /* Screens. */
-  --mobile: "min-width: 767px";
-
   /* Colors. */
   --black: #222;
   --purple: #d0d2fe;
@@ -142,7 +139,13 @@ header .container {
 header img {
   width: 80px;
   height: auto;
-  margin-left: -6px;
+  margin-left: -2px;
+}
+
+@media (min-width: 768px) {
+  header img {
+    margin-left: -6px;
+  }
 }
 
 header h1 {
@@ -163,17 +166,25 @@ header h1 {
 nav ul {
   list-style: none;
   margin: 0;
-  padding: 1rem 0;
+  padding: 0.6rem 0;
 }
 
 nav li {
   display: inline-block;
+  line-height: 2;
 }
 
 nav a {
   font-weight: bold;
   padding-left: 0.25rem;
   padding-right: 0.75rem;
+}
+
+@media (max-width: 767px) {
+  nav a {
+    padding-right: 0.55rem;
+    font-size: 15px;
+  }
 }
 
 nav li:last-child a {
@@ -214,6 +225,29 @@ nav li:last-child a {
   .contact a.mobile-small-text {
     font-size: 14px;
   }
+}
+
+#overnight-low-wrapper {
+  background: var(--lighter-blue);
+  border-radius: 12px;
+  border: 2px solid var(--light-blue);
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  max-width: 450px;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+#overnight-low-wrapper small {
+  display: block;
+  font-weight: normal;
+  margin-top: 2px;
+}
+
+#overnight-low-wrapper small a {
+  color: #222;
 }
 
 
