@@ -203,6 +203,7 @@ nav li:last-child a {
 
 .contact li:first-child {
   border-top: 0;
+  padding-top: 0.25rem;
 }
 
 .contact a {
