@@ -10,6 +10,30 @@
   --blue: #197CBB;
 }
 
+/* FONTS */
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/roboto-slab-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 /* BASICS */
 
 html {
