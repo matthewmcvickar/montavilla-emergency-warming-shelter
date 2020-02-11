@@ -49,7 +49,7 @@ body {
 
 @media (min-width: 768px) {
   body {
-    background-image: url(../images/background-pattern.png?v=2);
+    background-image: url(../images/background-pattern.png?v=3);
     background-repeat: repeat;
   }
 }
