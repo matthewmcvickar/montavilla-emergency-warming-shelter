@@ -118,24 +118,29 @@
 
   <script>
   // Get overnight low temperature and inject it into the page.
-  var request = new XMLHttpRequest();
-  request.open('GET', 'https://api.weather.gov/gridpoints/PQR/115,102/forecast', true);
-  request.onload = function() {
-    if (this.status >= 200 && this.status < 400) {
-      var data = JSON.parse(this.response);
-      data.properties.periods.forEach(function (period) {
-        if (period.name === 'Tonight') {
-          var lowTemp = period.temperature;
+  getOvernightLow(); // Do this on pageload.
+  setInterval(getOvernightLow, 300000); // Do this every five minutes.
 
-          document.getElementById('overnight-low-wrapper').style.display = 'block';
-          document.getElementById('overnight-low').innerText = lowTemp;
-        }
-      });
-    } else {
-      // No response from NWS. Oh well! Don't show the forecast, then.
-    }
-  };
-  request.send();
+  function getOvernightLow() {
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://api.weather.gov/gridpoints/PQR/115,102/forecast', true);
+    request.onload = function() {
+      if (this.status >= 200 && this.status < 400) {
+        var data = JSON.parse(this.response);
+        data.properties.periods.forEach(function (period) {
+          if (period.name === 'Tonight') {
+            var lowTemp = period.temperature;
+
+            document.getElementById('overnight-low-wrapper').style.display = 'block';
+            document.getElementById('overnight-low').innerText = lowTemp;
+          }
+        });
+      } else {
+        // No response from NWS. Oh well! Don't show the forecast, then.
+      }
+    };
+    request.send();
+  }
   </script>
 
 </body>
