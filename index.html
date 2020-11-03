@@ -29,6 +29,20 @@
   <meta name="twitter:description" content="Montavilla Emergency Warming Shelter is a queer/trans organized, low barrier shelter rooted in anti-racist, trauma informed, and harm reduction approaches to community care, and mutual aid.">
   <meta name="twitter:image" content="https://mewscollective.org/images/mews-social-preview.png?v=2">
   <meta name="twitter:image:alt" content="a line drawing of a house with a heart inside it and a snowflake outside, below it is the acronym MEWS">
+
+  <!-- Temporary stylesheet while site is taken down. -->
+  <style>
+  body {
+    background-image: none;
+  }
+
+  p.site-unavailable {
+    margin: 1rem 3rem;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  </style>
 </head>
 
 <body>
@@ -39,111 +53,7 @@
       <h1>Montavilla Emergency Warming Shelter</h1>
     </div>
   </header>
-
-  <nav class="bg-light-blue">
-    <div class="container">
-      <ul>
-        <li><a href="https://www.facebook.com/MontavillaEmergencyWarmingShelter/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
-        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSf43TJ-GtvW5DvYOwuKb_Rxg45OLLkr_rNyxKtPqVAMEjKR6g/viewform" rel="noopener noreferrer" target="_blank">Volunteer Form</a></li>
-        <li><a href="https://www.signupgenius.com/go/4090548abaf22a7f58-mews" rel="noopener noreferrer" target="_blank">Shift Signup</a></li>
-        <li><a href="https://forecast.weather.gov/MapClick.php?lat=45.51409160000003&lon=-122.55904569999996" rel="noopener noreferrer" target="_blank">NWS Forecast</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-    <section class="what mobile-bg-purple">
-      <div class="container">
-        <h2>Who We Are</h2>
-        <p>MEWS is a <strong>queer/trans organized, low barrier shelter</strong>
-        rooted in <strong>anti-racist, trauma informed, and harm reduction</strong>
-        approaches to <strong>community care and mutual aid</strong>.</p>
-      </div>
-    </section>
-
-    <section class="when mobile-bg-pink">
-      <div class="container">
-        <h2>Hours</h2>
-        <p>MEWS will be <strong>open to guests from 7pm to 7am</strong> whenever
-        the overnight low temperature is forecast to be <strong>32&deg; or
-        below</strong> and if we have enough volunteers to safely open.</p>
-        <p>Please <strong>check the <a href="https://www.facebook.com/MontavillaEmergencyWarmingShelter/posts/" rel="noopener noreferrer" target="_blank">MEWS Facebook page</a> to confirm if we will be open</strong> tonight.</p>
-        <p id="overnight-low-wrapper" style="display: none;">
-          Tonight&rsquo;s low is forecast to be
-          <span id="overnight-low"></span>&deg;.
-          <small>(Live data from the latest <a href="https://forecast.weather.gov/MapClick.php?lat=45.51409160000003&lon=-122.55904569999996" rel="noopener noreferrer" target="_blank">National Weather Service forecast</a>.)</small>
-        </p>
-      </div>
-    </section>
-
-    <section class="mobile-bg-peach">
-      <div class="container">
-        <h2>Hosted At</h2>
-        <p>
-          St. Peter &amp; Paul Episcopal<br>
-          247 SE 82nd Ave, Portland, OR 97216<br>
-          <a href="https://goo.gl/maps/MaUw7YLAvuRFQva46" rel="noopener noreferrer" target="_blank">Google Map</a>
-        </p>
-      </div>
-    </section>
-
-    <section id="contact" class="contact mobile-bg-light-blue">
-      <div class="container">
-        <h2>Contact</h2>
-        <ul>
-          <li><strong>Phone:</strong> <a href="tel:5038934833">(503) 893-4833</a></li>
-          <li><strong>Email:</strong> <a class="mobile-small-text" href="mailto:montavillawarmingshelter@protonmail.com">montavillawarmingshelter@protonmail.com</a></li>
-          <li><strong>Facebook Messenger:</strong> <a class="mobile-small-text" href="https://m.me/MontavillaEmergencyWarmingShelter">m.me/MontavillaEmergencyWarmingShelter</a></li>
-          <li><strong>Facebook Page:</strong> <a href="https://www.facebook.com/MontavillaEmergencyWarmingShelter/" rel="noopener noreferrer" target="_blank">MEWS on Facebook</a></strong></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="mobile-bg-purple">
-      <div class="container">
-        <h2>Volunteering</h2>
-        <p><strong>Before signing up</strong> for a shift, please <strong><a href="https://docs.google.com/forms/d/e/1FAIpQLSf43TJ-GtvW5DvYOwuKb_Rxg45OLLkr_rNyxKtPqVAMEjKR6g/viewform" rel="noopener noreferrer" target="_blank">fill in the volunteer form</a></strong>.</p>
-        <p><strong>Sign up</strong> or see the updated <strong><a href="https://www.signupgenius.com/go/4090548abaf22a7f58-mews" rel="noopener noreferrer" target="_blank">MEWS Volunteer Signup/Schedule</a></strong>.</p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <img class="footer-image" src="/images/mews-logo.png?v=2" width="396" height="463" title="Montavilla Emergency Warming Shelter" alt="a line drawing of a house with a heart inside it and a snowflake outside, below it is the acronym MEWS">
-    </div>
-  </footer>
-
-  <script>
-  // Get overnight low temperature and inject it into the page.
-  getOvernightLow(); // Do this on pageload.
-  setInterval(getOvernightLow, 300000); // Do this every five minutes.
-
-  function getOvernightLow() {
-    var request = new XMLHttpRequest();
-    request.open('GET', 'https://api.weather.gov/gridpoints/PQR/115,102/forecast', true);
-    request.onload = function() {
-      if (this.status >= 200 && this.status < 400) {
-        var data = JSON.parse(this.response);
-        data.properties.periods.forEach(function (period) {
-          if (period.name === 'Tonight') {
-            var lowTemp = period.temperature;
-
-            document.getElementById('overnight-low-wrapper').style.display = 'block';
-            document.getElementById('overnight-low').innerText = lowTemp;
-          }
-        });
-      } else {
-        // No response from NWS. Oh well! Don't show the forecast, then.
-        console.log('No response from NWS.')
-        document.getElementById('overnight-low-wrapper').style.display = 'none';
-      }
-    };
-    request.send();
-  }
-  </script>
+  <p class="site-unavailable">Site unavailable; please check back at a later date.</p>
 
 </body>
 </html>
